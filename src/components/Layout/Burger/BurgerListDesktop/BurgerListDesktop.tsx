@@ -1,6 +1,6 @@
 import styles from "./BurgerListDesktop.module.scss";
 import cn from "classnames";
-import { routes } from "../../../../routes";
+import { routes } from "../../../../../routes";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
@@ -30,33 +30,33 @@ const BurgerListDesktop = ({ isOpened }: BurgerMenuDesktopProps) => {
       height: "auto",
       padding: ["20px", "20px", "30px", "20px"],
       transition: {
-        ease: "linear"
-      }
+        ease: "linear",
+      },
     },
     hidden: {
       height: 0,
       padding: 0,
       overflow: "hidden",
       transition: {
-        delay: 0.15
-      }
-    }
-  }
+        delay: 0.15,
+      },
+    },
+  };
 
   const variantsChildren = {
     visible: {
       opacity: 1,
       transition: {
-        delay: 0.25
-      }
-    }, 
+        delay: 0.25,
+      },
+    },
     hidden: {
       opacity: 0,
       transition: {
-        duration: 0.05
-      }
-    }
-  }
+        duration: 0.05,
+      },
+    },
+  };
 
   return (
     <motion.ul
@@ -66,12 +66,13 @@ const BurgerListDesktop = ({ isOpened }: BurgerMenuDesktopProps) => {
       className={styles["nav__menu"]}
     >
       {navLinks.map((item, index) => (
-        <motion.li 
-        animate={isOpened ? "visible" : "hidden"}
-        variants={variantsChildren} 
-        className={styles["nav__link-item"]}
-        // transition={{duration: 0.25, linear: "ease", delay: 0.25}}
-        key={index}>
+        <motion.li
+          animate={isOpened ? "visible" : "hidden"}
+          variants={variantsChildren}
+          className={styles["nav__link-item"]}
+          // transition={{duration: 0.25, linear: "ease", delay: 0.25}}
+          key={index}
+        >
           <Link
             className={cn(styles["nav__link"], {
               [styles["nav__link-active"]]: router.pathname === item.link,

@@ -10,7 +10,7 @@ import BurgerButton from "../Burger/BurgerMenuButton/BurgerMenuButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-import { routes } from "../../../routes";
+import { routes } from "../../../../routes";
 
 export default function Header({
   classname,
@@ -49,8 +49,10 @@ export default function Header({
           </div>
 
           <div className={cn(styles["header__localization-block"])}>
-            <LocalizationMenu classname={cn(styles["header__localization"])} isInBurger={false} />
-            
+            <LocalizationMenu
+              classname={cn(styles["header__localization"])}
+              isInBurger={false}
+            />
           </div>
         </div>
       </div>
