@@ -1,31 +1,40 @@
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 import cn from "classnames";
 import Socials from "@/components/Socials/Socials";
-import PaymentButton from "@/components/PaymentButton/ButtonComponent";
+import PaymentButton from "../../Button/ButtonComponent";
 import LogoComponent from "@/components/Logo/Logo";
-import PhoneIcon from "../../../public/socials/phone.svg";
-import EmailIcon from "../../../public/socials/email.svg";
-import { links, routes } from "../../../routes";
+// import PhoneIcon from "../../../public/socials/phone.svg";
+// import EmailIcon from "../../../public/socials/email.svg";
+import { links, routes } from "../../../../routes";
 import PhoneContact from "@/components/PhoneContact/PhoneContact";
 import EmailContact from "@/components/EmailContact/EmailContact";
+import { useTranslation } from "../../../app/_lib/i18n/index";
 
-const Footer = (): JSX.Element => {
-  const { t } = useTranslation();
+const Footer = async ({ lng }: { lng: string }): Promise<JSX.Element> => {
+  const { t } = await useTranslation(lng, undefined);
   const date = new Date();
   return (
     <footer className={cn(styles["footer"])}>
       <div className={cn(styles["container"])}>
         <div className={cn(styles["footer__content"])}>
           <ul className={cn(styles["footer__list"])}>
-
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-first"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-first"]
+              )}
+            >
               <Link className={cn(styles["footer__link-text"])} href={"/"}>
                 {t("footer_links.language_school")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-second"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-second"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.resume}
@@ -33,7 +42,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.cv_writing")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-third"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-third"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.prepareToTest}
@@ -41,7 +55,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.prepare_to_technical_language_test")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-fourth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-fourth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.students}
@@ -49,7 +68,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.admission_to_universities")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-fifth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-fifth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.freeCourse}
@@ -58,7 +82,12 @@ const Footer = (): JSX.Element => {
               </Link>
             </li>
 
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-sixth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-sixth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.consultation}
@@ -66,7 +95,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.personal_consultation")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-sixth-long"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-sixth-long"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.consultation}
@@ -75,7 +109,12 @@ const Footer = (): JSX.Element => {
               </Link>
             </li>
 
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-seventh"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-seventh"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.speakingClub}
@@ -83,7 +122,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.conversational_club")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-eighth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-eighth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.documents}
@@ -92,7 +136,12 @@ const Footer = (): JSX.Element => {
               </Link>
             </li>
 
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-nineth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-nineth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.publicOffer}
@@ -100,7 +149,12 @@ const Footer = (): JSX.Element => {
                 {t("footer_links.public_offer")}
               </Link>
             </li>
-            <li className={cn(styles["footer__list-item"], styles["footer__list-item-tenth"])}>
+            <li
+              className={cn(
+                styles["footer__list-item"],
+                styles["footer__list-item-tenth"]
+              )}
+            >
               <Link
                 className={cn(styles["footer__link-text"])}
                 href={routes.privacyPolicy}
@@ -120,8 +174,8 @@ const Footer = (): JSX.Element => {
             </div>
             {/**TODO width button 226 */}
             <PaymentButton
-              classname={cn(styles["footer__payment-footer"])}
-              apperance="payment"
+              className={cn(styles["footer__payment-footer"])}
+              buttonType="white"
             >
               {t("payment_button")}
             </PaymentButton>
