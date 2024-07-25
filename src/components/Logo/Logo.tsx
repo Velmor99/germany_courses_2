@@ -1,7 +1,7 @@
-import BlackLogo from "../../../public/common/logo-black-desktop.svg";
-import MobileBlackLogo from '../../../public/common/mobile-logo-black.svg';
-import TabletBlackLogo from '../../../public/common/tablet-logo-black.svg';
-import WhiteLogo from "../../../public/common/logo-white-desktop.svg";
+// import BlackLogo from "../../../public/common/logo-black-desktop.svg";
+// import MobileBlackLogo from '../../../public/common/mobile-logo-black.svg';
+// import TabletBlackLogo from '../../../public/common/tablet-logo-black.svg';
+// import WhiteLogo from "../../../public/common/logo-white-desktop.svg";
 import { LogoProps } from "./Logo.props";
 import Link from "next/link";
 import styles from "./Logo.module.scss";
@@ -21,24 +21,24 @@ const LogoComponent = ({
             className={cn(styles["logo__link"], styles["desktop"])}
             href={routes.main}
           >
-            <BlackLogo />
+            {/* <BlackLogo /> */}
           </Link>
           <Link
             className={cn(styles["logo__link"], styles["tablet"])}
             href={routes.main}
           >
-            <TabletBlackLogo />
+            {/* <TabletBlackLogo /> */}
           </Link>
           <Link
             className={cn(styles["logo__link"], styles["mobile"])}
             href={routes.main}
           >
-            <MobileBlackLogo />
+            {/* <MobileBlackLogo /> */}
           </Link>
         </>
       ) : (
         <Link className={cn(styles["logo__link"])} href={routes.main}>
-          <WhiteLogo />
+          {/* <WhiteLogo /> */}
         </Link>
       )}
     </div>

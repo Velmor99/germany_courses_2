@@ -1,7 +1,7 @@
 import { ButtonProps } from "./Button.props";
 import cn from "classnames";
 import styles from "./Button.module.scss";
-import { TailSpin } from "react-loader-spinner";
+// import { TailSpin } from "react-loader-spinner";
 
 const ButtonComponent = ({
   children,
@@ -22,14 +22,14 @@ const ButtonComponent = ({
     >
       {isLoading ? (
         <div className={styles["spinner"]}>
-          <TailSpin
+          {/* <TailSpin
             width="auto"
             height="auto"
             color={buttonType === "green" ? "#ffffff" : "#34D186"}
             ariaLabel="tail-spin-loading"
             radius="1"
             visible={true}
-          />
+          /> */}
         </div>
       ) : (
         children
