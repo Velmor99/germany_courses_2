@@ -2,8 +2,6 @@ import styles from "./BurgerListDesktop.module.scss";
 import cn from "classnames";
 import { routes } from "../../../../../routes";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { BurgerMenuDesktopProps } from "./BurgerListDesktop.props";
 
@@ -22,9 +20,6 @@ const navLinks = [
 ];
 
 const BurgerListDesktop = ({ isOpened }: BurgerMenuDesktopProps) => {
-  const { t } = useTranslation();
-  const router = useRouter();
-
   const variants = {
     visible: {
       height: "auto",
@@ -75,11 +70,12 @@ const BurgerListDesktop = ({ isOpened }: BurgerMenuDesktopProps) => {
         >
           <Link
             className={cn(styles["nav__link"], {
-              [styles["nav__link-active"]]: router.pathname === item.link,
+              //TODO
+              // [styles["nav__link-active"]]: router.pathname === item.link,
             })}
             href={item.link}
           >
-            {t(item.name)}
+            {/* {t(item.name)} */}
           </Link>
         </motion.li>
       ))}

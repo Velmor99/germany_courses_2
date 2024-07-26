@@ -1,9 +1,8 @@
 import styles from "./BurgerMenu.module.scss";
 import cn from "classnames";
 import { BurgerMenuProps } from "./BurgerMenu.props";
-import ArrowIcon from "../../../../public/common/localization_arrow.svg";
+import ArrowIcon from "../../../../../public/common/localization_arrow.svg";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
 import { routes } from "../../../../../routes";
 import Socials from "@/components/Socials/Socials";
 import PhoneContact from "@/components/PhoneContact/PhoneContact";
@@ -11,12 +10,12 @@ import EmailContact from "@/components/EmailContact/EmailContact";
 import LocalizationMenu from "@/components/LocalizationMenu/LocalizationMenu";
 
 const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
-  const { t } = useTranslation();
   return (
     <nav className={cn(styles["burger-menu"], className)}>
       <div className={cn(styles["burger-container"])}>
         <div className={cn(styles["burger-menu__title-block"])}>
-          <h1 className={cn(styles["burger-menu__title"])}>{t("service")}</h1>
+          {/*TODO*/}
+          {/* <h1 className={cn(styles["burger-menu__title"])}>{t("service")}</h1> */}
           <div className={cn(styles["burger-menu__icon"])}>
             <ArrowIcon />
           </div>
@@ -30,7 +29,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.languageSchool}
             >
-              {t("footer_links.language_school")}
+              {/* {t("footer_links.language_school")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -38,7 +37,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.resume}
             >
-              {t("footer_links.cv_writing")}
+              {/* {t("footer_links.cv_writing")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -46,7 +45,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.prepareToTest}
             >
-              {t("footer_links.prepare_to_technical_language_test")}
+              {/* {t("footer_links.prepare_to_technical_language_test")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -54,7 +53,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.students}
             >
-              {t("footer_links.admission_to_universities")}
+              {/* {t("footer_links.admission_to_universities")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -62,7 +61,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.consultation}
             >
-              {t("footer_links.personal_consultation")}
+              {/* {t("footer_links.personal_consultation")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -70,7 +69,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.speakingClub}
             >
-              {t("footer_links.conversational_club")}
+              {/* {t("footer_links.conversational_club")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -78,7 +77,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.freeCourse}
             >
-              {t("footer_links.free_information_course")}
+              {/* {t("footer_links.free_information_course")} */}
             </Link>
           </li>
           <li className={cn(styles["burger-menu__list-item"])}>
@@ -86,7 +85,7 @@ const BurgerMenu = ({ className, setBurgerMenu, title }: BurgerMenuProps) => {
               className={cn(styles["burger-menu__link"])}
               href={routes.documents}
             >
-              {t("footer_links.preparing_documents")}
+              {/* {t("footer_links.preparing_documents")} */}
             </Link>
           </li>
         </ul>

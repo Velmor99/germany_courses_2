@@ -3,21 +3,22 @@ import styles from "./AdditionalServices.module.scss";
 import ResumeImage from "../../../public/advantages_icons/resume.png";
 import TranslateImage from "../../../public/advantages_icons/translate_documents.png";
 import ConsultationImage from "../../../public/advantages_icons/consultations.png";
-import { useTranslation } from "next-i18next";
+//TODO
+// import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
 const AdditionalServices = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className={cn(styles["services"])}>
       <div className={cn(styles["container"])}>
         <div className={cn(styles["services__title-block"])}>
           <h2>
             <span className={cn(styles["services__white-title"])}>
-              {t("additional_services_white_title")}
+              {/* {t("additional_services_white_title")} */}
             </span>
             <span className={cn(styles["services__black-title"])}>
-              {t("additional_services_black_title")}
+              {/* {t("additional_services_black_title")} */}
             </span>
           </h2>
           <div className={cn(styles["services__white-circle"])}></div>
@@ -38,7 +39,7 @@ const AdditionalServices = () => {
               />
             </div>
             <p className={cn(styles["services__list-item-text"])}>
-              {t("additional_services_items.resume")}
+              {/* {t("additional_services_items.resume")} */}
             </p>
           </div>
           <div
@@ -55,7 +56,7 @@ const AdditionalServices = () => {
               />
             </div>
             <p className={cn(styles["services__list-item-text"])}>
-              {t("additional_services_items.translations")}
+              {/* {t("additional_services_items.translations")} */}
             </p>
           </div>
           <div
@@ -72,7 +73,7 @@ const AdditionalServices = () => {
               />
             </div>
             <p className={cn(styles["services__list-item-text"])}>
-              {t("additional_services_items.consultations")}
+              {/* {t("additional_services_items.consultations")} */}
             </p>
           </div>
         </div>

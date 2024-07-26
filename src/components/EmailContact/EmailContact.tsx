@@ -1,5 +1,5 @@
-// import WhiteEmailIcon from '../../../public/socials/email.svg';
-// import BlackEmailIcon from '../../../public/socials/black-mail.svg';
+import WhiteEmailIcon from "../../../public/socials/email.svg";
+import BlackEmailIcon from "../../../public/socials/black-mail.svg";
 import cn from "classnames";
 import styles from "./EmailContact.module.scss";
 import { EmailContactProps } from "./EmailContact.props";
@@ -21,7 +21,7 @@ const EmailContact = ({ styleType }: EmailContactProps) => {
             [styles["email__icon-white"]]: styleType === "white",
           })}
         >
-          {/* {styleType === "white" ? <WhiteEmailIcon /> : <BlackEmailIcon />} */}
+          {styleType === "white" ? <WhiteEmailIcon /> : <BlackEmailIcon />}
         </div>
         <span
           className={cn(styles["email__text"], {

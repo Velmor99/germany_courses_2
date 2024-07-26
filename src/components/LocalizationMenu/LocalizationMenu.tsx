@@ -1,5 +1,7 @@
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
+"use client";
+//TODO
+// import { useRouter } from "next/router";
+// import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./LocalizationMenu.module.scss";
@@ -17,64 +19,61 @@ const LocalizationMenu = ({
   isInBurger,
 }: LocalizationProps): JSX.Element => {
   const [isOpenLocalizationMenu, openLocalizationMenu] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
+  // const pathname = usePathname();
+  // const router = useRouter();
 
   const changeLocalizationMenu = (value: boolean) => {
     openLocalizationMenu(value);
   };
 
-  const transformLocaleToText = () => {
-    switch (router.locale) {
-      case routes.localization.en.route:
-        return routes.localization.en.title;
+  // const transformLocaleToText = () => {
+  //   switch (router.locale) {
+  //     case routes.localization.en.route:
+  //       return routes.localization.en.title;
 
-      case routes.localization.de.route:
-        return routes.localization.de.title;
+  //     case routes.localization.de.route:
+  //       return routes.localization.de.title;
 
-      // case routes.localization.ua.route:
-      //   return routes.localization.ua.title;
+  //     case routes.localization.ru.route:
+  //       return routes.localization.ru.title;
 
-      case routes.localization.ru.route:
-        return routes.localization.ru.title;
-
-      default:
-        break;
-    }
-  }
+  //     default:
+  //       break;
+  //   }
+  // }
 
   const variants = {
     visible: {
       height: "auto",
       padding: ["20px", "20px", "30px", "20px"],
       transition: {
-        ease: "linear"
-      }
+        ease: "linear",
+      },
     },
     hidden: {
       height: 0,
       padding: 0,
       overflow: "hidden",
       transition: {
-        delay: 0.15
-      }
-    }
+        delay: 0.15,
+      },
+    },
   };
 
   const variantsChildren = {
     visible: {
       opacity: 1,
       transition: {
-        delay: 0.25
-      }
-    }, 
+        delay: 0.25,
+      },
+    },
     hidden: {
       opacity: 0,
       transition: {
-        duration: 0.05
-      }
-    }
-  }
+        duration: 0.05,
+      },
+    },
+  };
 
   return (
     <div
@@ -87,53 +86,55 @@ const LocalizationMenu = ({
           <LanguageIcon />
         </div>
         <span className={cn(styles["localization__current"])}>
-          {transformLocaleToText()}
+          {/* {transformLocaleToText()} */}
         </span>
         <div className={cn(styles["localization__current-arrow-icon"])}>
           <ArrowIcon />
         </div>
       </div>
       <motion.ul
-      layout
-      variants={variants}
-      animate={isOpenLocalizationMenu ? "visible" : "hidden"}
+        layout
+        variants={variants}
+        animate={isOpenLocalizationMenu ? "visible" : "hidden"}
         onMouseLeave={() => changeLocalizationMenu(false)}
         className={cn(styles["localization__list"], {
           [styles["localization__list-burger"]]: isInBurger === true,
           [styles["localization__list-open"]]: isOpenLocalizationMenu,
         })}
       >
-        <motion.li 
-        onClick={() => changeLocalizationMenu(false)} 
-        className={cn(styles["localization__list-item"])}
-        animate={isOpenLocalizationMenu ? "visible" : "hidden"}
-        variants={variantsChildren} 
-        >
-            <Link
-              replace={true}
-              href={pathname}
-              locale="en"
-              className={cn(styles["localization__link"], {
-                [styles["localization__link-active"]]: router.locale === "en" && isOpenLocalizationMenu,
-                [styles["localization__link-open"]]: isOpenLocalizationMenu
-              })}
-            >
-              {routes.localization.en.title}
-            </Link>
-          </motion.li>
         <motion.li
           onClick={() => changeLocalizationMenu(false)}
           className={cn(styles["localization__list-item"])}
           animate={isOpenLocalizationMenu ? "visible" : "hidden"}
-          variants={variantsChildren} 
+          variants={variantsChildren}
+        >
+          <Link
+            replace={true}
+            // href={pathname}
+            href={""}
+            locale="en"
+            className={cn(styles["localization__link"], {
+              // [styles["localization__link-active"]]: router.locale === "en" && isOpenLocalizationMenu,
+              [styles["localization__link-open"]]: isOpenLocalizationMenu,
+            })}
+          >
+            {routes.localization.en.title}
+          </Link>
+        </motion.li>
+        <motion.li
+          onClick={() => changeLocalizationMenu(false)}
+          className={cn(styles["localization__list-item"])}
+          animate={isOpenLocalizationMenu ? "visible" : "hidden"}
+          variants={variantsChildren}
         >
           <Link
             className={cn(styles["localization__link"], {
-              [styles["localization__link-open-active"]]: router.locale === "de" && isOpenLocalizationMenu,
-              [styles["localization__link-open"]]: isOpenLocalizationMenu
+              // [styles["localization__link-open-active"]]: router.locale === "de" && isOpenLocalizationMenu,
+              [styles["localization__link-open"]]: isOpenLocalizationMenu,
             })}
             replace={true}
-            href={pathname}
+            // href={pathname}
+            href={""}
             locale="de"
           >
             {routes.localization.de.title}
@@ -155,15 +156,16 @@ const LocalizationMenu = ({
           onClick={() => changeLocalizationMenu(false)}
           className={cn(styles["localization__list-item"])}
           animate={isOpenLocalizationMenu ? "visible" : "hidden"}
-          variants={variantsChildren} 
+          variants={variantsChildren}
         >
           <Link
             className={cn(styles["localization__link"], {
-              [styles["localization__link-open-active"]]: router.locale === "ru" && isOpenLocalizationMenu,
-            [styles["localization__link-open"]]: isOpenLocalizationMenu
+              // [styles["localization__link-open-active"]]: router.locale === "ru" && isOpenLocalizationMenu,
+              [styles["localization__link-open"]]: isOpenLocalizationMenu,
             })}
             replace={true}
-            href={pathname}
+            // href={pathname}
+            href={""}
             locale="ru"
           >
             {routes.localization.ru.title}

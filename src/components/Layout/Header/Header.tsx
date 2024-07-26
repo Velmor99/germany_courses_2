@@ -1,4 +1,3 @@
-import { useTranslation } from "next-i18next";
 import cn from "classnames";
 import PaymentButton from "@/components/PaymentButton/ButtonComponent";
 import { HeaderProps } from "./Header.props";
@@ -7,21 +6,18 @@ import LogoComponent from "@/components/Logo/Logo";
 import Socials from "@/components/Socials/Socials";
 import LocalizationMenu from "@/components/LocalizationMenu/LocalizationMenu";
 import BurgerButton from "../Burger/BurgerMenuButton/BurgerMenuButton";
-import Link from "next/link";
+// import Link from "next/link";
 import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-import { routes } from "../../../../routes";
+// import { routes } from "../../../../routes";
 
 export default function Header({
+  lang,
   classname,
   isShowedBurger,
   setBurgerMenu,
   ...props
 }: HeaderProps): JSX.Element {
-  const { t } = useTranslation();
-  const pathname = usePathname();
-  const router = useRouter();
-
   return (
     <header className={cn(styles["header"])}>
       <div className={cn(styles["container"])}>
@@ -41,7 +37,8 @@ export default function Header({
             apperance="payment"
             classname={cn(styles["header__payment-button"])}
           >
-            {t("payment_button")}
+            <p></p>
+            {/* {t("payment_button")} */}
           </PaymentButton>
 
           <div className={cn(styles["header__socials"])}>

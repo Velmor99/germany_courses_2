@@ -4,15 +4,15 @@ import cn from "classnames";
 import Socials from "@/components/Socials/Socials";
 import PaymentButton from "../../Button/ButtonComponent";
 import LogoComponent from "@/components/Logo/Logo";
-// import PhoneIcon from "../../../public/socials/phone.svg";
-// import EmailIcon from "../../../public/socials/email.svg";
+// import PhoneIcon from "../../../../public/socials/phone.svg";
+// import EmailIcon from "../../../../public/socials/email.svg";
 import { links, routes } from "../../../../routes";
 import PhoneContact from "@/components/PhoneContact/PhoneContact";
 import EmailContact from "@/components/EmailContact/EmailContact";
 import { useTranslation } from "../../../app/_lib/i18n/index";
 
-const Footer = async ({ lng }: { lng: string }): Promise<JSX.Element> => {
-  const { t } = await useTranslation(lng, undefined);
+const Footer = async ({ lang }: { lang: string }): Promise<JSX.Element> => {
+  const { t } = await useTranslation(lang, undefined);
   const date = new Date();
   return (
     <footer className={cn(styles["footer"])}>
