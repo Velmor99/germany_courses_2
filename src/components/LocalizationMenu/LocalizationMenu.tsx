@@ -1,7 +1,7 @@
 "use client";
 //TODO
-// import { useRouter } from "next/router";
-// import { usePathname } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
 import styles from "./LocalizationMenu.module.scss";
@@ -19,28 +19,25 @@ const LocalizationMenu = ({
   isInBurger,
 }: LocalizationProps): JSX.Element => {
   const [isOpenLocalizationMenu, openLocalizationMenu] = useState(false);
-  // const pathname = usePathname();
+  const pathname = usePathname();
+  const lang = pathname.split("/");
   // const router = useRouter();
+
+  // console.log(lang);
 
   const changeLocalizationMenu = (value: boolean) => {
     openLocalizationMenu(value);
   };
 
-  // const transformLocaleToText = () => {
-  //   switch (router.locale) {
-  //     case routes.localization.en.route:
-  //       return routes.localization.en.title;
-
-  //     case routes.localization.de.route:
-  //       return routes.localization.de.title;
-
-  //     case routes.localization.ru.route:
-  //       return routes.localization.ru.title;
-
-  //     default:
-  //       break;
-  //   }
-  // }
+  const transformLocaleToText = () => {
+    if (lang.includes("en")) {
+      return routes.localization.en.title;
+    } else if (lang.includes("de")) {
+      return routes.localization.de.title;
+    } else if (lang.includes("ru")) {
+      return routes.localization.ru.title;
+    }
+  };
 
   const variants = {
     visible: {
@@ -78,7 +75,7 @@ const LocalizationMenu = ({
   return (
     <div
       className={cn(styles["localization"], classname)}
-      // onMouseEnter={() => changeLocalizationMenu(true)}
+      onMouseEnter={() => changeLocalizationMenu(true)}
       onClick={() => changeLocalizationMenu(!isOpenLocalizationMenu)}
     >
       <div className={cn(styles["localization__current-block"])}>
@@ -86,7 +83,7 @@ const LocalizationMenu = ({
           <LanguageIcon />
         </div>
         <span className={cn(styles["localization__current"])}>
-          {/* {transformLocaleToText()} */}
+          {transformLocaleToText()}
         </span>
         <div className={cn(styles["localization__current-arrow-icon"])}>
           <ArrowIcon />
