@@ -6,18 +6,16 @@ import LogoComponent from "@/components/Logo/Logo";
 import Socials from "@/components/Socials/Socials";
 import LocalizationMenu from "@/components/LocalizationMenu/LocalizationMenu";
 import BurgerButton from "../Burger/BurgerMenuButton/BurgerMenuButton";
-// import Link from "next/link";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
-// import { routes } from "../../../../routes";
+import { useTranslation } from "../../../app/_lib/i18n";
 
-export default function Header({
+export default async function Header({
   lang,
   classname,
   isShowedBurger,
   setBurgerMenu,
   ...props
-}: HeaderProps): JSX.Element {
+}: HeaderProps): Promise<JSX.Element> {
+  const { t } = await useTranslation(lang, undefined);
   return (
     <header className={cn(styles["header"])}>
       <div className={cn(styles["container"])}>
@@ -38,7 +36,7 @@ export default function Header({
             classname={cn(styles["header__payment-button"])}
           >
             <p></p>
-            {/* {t("payment_button")} */}
+            {t("payment_button")}
           </PaymentButton>
 
           <div className={cn(styles["header__socials"])}>
