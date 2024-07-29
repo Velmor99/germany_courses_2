@@ -9,10 +9,16 @@ import LogoComponent from "@/components/Logo/Logo";
 import { links, routes } from "../../../../routes";
 import PhoneContact from "@/components/PhoneContact/PhoneContact";
 import EmailContact from "@/components/EmailContact/EmailContact";
-import { useTranslation } from "../../../app/_lib/i18n/index";
+// import { useTranslation } from "../../../app/_lib/i18n/index";
 
-const Footer = async ({ lang }: { lang: string }): Promise<JSX.Element> => {
-  const { t } = await useTranslation(lang, undefined);
+const FooterBase = async ({
+  t,
+  lang,
+}: {
+  t: (languageVal: string) => string;
+  lang: string;
+}): Promise<JSX.Element> => {
+  // const { t } = await useTranslation(lang, undefined);
   const date = new Date();
   return (
     <footer className={cn(styles["footer"])}>
@@ -203,4 +209,4 @@ const Footer = async ({ lang }: { lang: string }): Promise<JSX.Element> => {
   );
 };
 
-export default Footer;
+export default FooterBase;

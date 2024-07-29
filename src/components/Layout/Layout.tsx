@@ -1,6 +1,6 @@
 "use client";
 import { FunctionComponent, useState } from "react";
-import Footer from "./Footer/Footer";
+import { Footer } from "./Footer";
 import Header from "./Header/Header";
 import { LayoutProps } from "./Layout.props";
 import cn from "classnames";
@@ -47,7 +47,7 @@ export const Layout = ({ children, lng }: LayoutProps): JSX.Element => {
         <BurgerMenu setBurgerMenu={changeShowBurgerMenu} />
       </motion.div>
       {children}
-      <Footer lng={lng} />
+      <Footer lang={lng} />
     </div>
   );
 };
