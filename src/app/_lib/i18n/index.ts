@@ -3,7 +3,7 @@ import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next/initReactI18next";
 import { getOptions } from "./settings";
 
-const initI18next = async (lng: string, ns: string | undefined) => {
+const initI18next = async (lng: string) => {
   const i18nInstance = createInstance();
   await i18nInstance
     .use(initReactI18next)
@@ -13,22 +13,14 @@ const initI18next = async (lng: string, ns: string | undefined) => {
           import(`./locales/${language}/${namespace}.json`)
       )
     )
-    .init(getOptions(lng, ns));
+    .init(getOptions(lng));
   return i18nInstance;
 };
 
-export async function useTranslation(
-  lng: string,
-  ns: string | undefined
-  //   options = {}
-) {
-  const i18nextInstance = await initI18next(lng, ns);
+export async function useTranslation(lng: string) {
+  const i18nextInstance = await initI18next(lng);
   return {
-    t: i18nextInstance.getFixedT(
-      lng,
-      Array.isArray(ns) ? ns[0] : ns
-      //   options.keyPrefix
-    ),
+    t: i18nextInstance.getFixedT(lng),
     i18n: i18nextInstance,
   };
 }

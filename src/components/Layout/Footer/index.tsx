@@ -6,7 +6,7 @@ export const Footer = async ({
 }: {
   lang: string;
 }): Promise<JSX.Element> => {
-  const { t } = await useTranslation(lang, undefined);
+  const { t } = await useTranslation(lang);
   return (
     <>
       <FooterBase t={t} lang={lang} />
